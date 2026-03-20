@@ -403,7 +403,7 @@
   </div>
   <div class="header-meta">
     SE Field Guide<br>
-    v1.1 · 2026<br>
+    2026<br>
     Internal Use
   </div>
 </header>
@@ -432,41 +432,36 @@
     <section id="purpose">
       <h2><span class="sec-num">00</span> Purpose</h2>
       <div class="intro-card">
-        <p>This guide equips Solution Engineers to build working prototypes — fast — using GitHub Copilot. The goal isn't to turn SEs into software engineers. It's to close the gap between <em>knowing what a solution should do</em> and <em>showing it working</em>. A credible 1–3 day prototype changes the customer conversation.</p>
+        <p>This guide equips Solution Engineers to build working rapid prototypes using GitHub Copilot. The goal isn't to become software engineers. It's to close the gap between <em>knowing what a solution should do</em> and <em>showing it working</em>. A credible 1–3 day prototype changes the customer conversation.</p>
       </div>
-      <p>Prototypes built in the field don't need to be production-ready. They need to be <strong>real enough to feel true</strong>: working API calls, real data shapes, an interface a customer can click through. Copilot makes that bar achievable without a deep engineering background.</p>
+      <p>Prototypes built in the field don't need to be production-ready. They need to be <strong>real enough to feel true</strong>: working API calls, real data shapes, an interface a customer can click through. GitHub Copilot makes that bar achievable without a deep engineering background.</p>
     </section>
 
     <section id="mindset">
       <h2><span class="sec-num">01</span> Mindset Shift</h2>
-      <p>The biggest blocker for SEs isn't skill — it's how they think about coding. Here's the reframe:</p>
+      <p>Prototyping with AI assistance is a different skill than traditional coding. You already have the hardest part: customer context and domain knowledge. Here's how to pair that with GitHub Copilot effectively:</p>
 
       <div class="card-grid">
         <div class="card">
           <div class="card-icon">🏗️</div>
           <h4>You're the architect</h4>
-          <p>Copilot writes code. You decide what to build and whether the output is right.</p>
+          <p>GitHub Copilot writes code. You decide what to build and whether the output is right.</p>
         </div>
         <div class="card">
           <div class="card-icon">🔁</div>
           <h4>Iteration > perfection</h4>
-          <p>A working prototype in 4 hours beats a polished plan that never runs.</p>
+          <p>A working prototype in 2 hours beats a polished plan that never runs.</p>
         </div>
         <div class="card">
           <div class="card-icon">🗣️</div>
           <h4>Context is leverage</h4>
-          <p>The more context you give Copilot, the better the output. Your domain knowledge is the asset.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🧪</div>
-          <h4>Run everything</h4>
-          <p>Don't read code — run it. Errors are part of the process, not a sign of failure.</p>
+          <p>The more context you give GitHub Copilot, the better the output. Your domain knowledge is the asset.</p>
         </div>
       </div>
 
       <div class="callout warn">
         <strong>Common trap</strong>
-        Don't spend time trying to fully understand every line Copilot generates before running it. Read for intent, run for truth.
+        Don't spend time trying to get the prototype fully aligned with what the customer wants in production. Position it when meeting with the customer as: "We know when we rapid prototype that it's going to be wrong. But we are demonstrating the capability to ground the discussion, and we will iterate with you as we co-develop."
       </div>
     </section>
 
@@ -479,7 +474,7 @@
         <li>GitHub Copilot + Copilot Chat extensions installed and licensed — confirm with your manager</li>
         <li>Python 3.11+ installed</li>
         <li>Azure CLI installed and authenticated (<code>az login</code>)</li>
-        <li>Access to an Azure subscription with AI Foundry or Azure OpenAI provisioned</li>
+        <li>Access to an Azure subscription with Microsoft Foundry provisioned</li>
       </ul>
 
       <h3>Key Extensions</h3>
@@ -487,7 +482,6 @@
         <span class="badge blue">GitHub Copilot</span>
         <span class="badge blue">GitHub Copilot Chat</span>
         <span class="badge green">Python</span>
-        <span class="badge green">Pylance</span>
         <span class="badge purple">Azure Tools</span>
         <span class="badge">REST Client</span>
       </div>
@@ -500,7 +494,7 @@
 
     <section id="workflow">
       <h2><span class="sec-num">03</span> Prototyping Workflow</h2>
-      <p>Use this loop for every prototype. The full cycle should take <strong>2–8 hours</strong> for most SE demos.</p>
+      <p>Use this loop for every prototype. The full cycle should take <strong>2–4 hours</strong> for most SE demos.</p>
 
       <div class="steps">
         <div class="step">
@@ -520,36 +514,29 @@
         <div class="step">
           <div class="step-num">03</div>
           <div>
-            <h4>Send your starting prompt — plan first</h4>
-            <p>Use the template in Section 04. Ask Copilot to output a plan before writing any code, then wait for your approval. The plan is your cheapest chance to course-correct.</p>
+            <h4>Send your starting prompt, and plan first</h4>
+            <p>Use the template in Section 04. Ask GitHub Copilot to output a plan before writing any code, then wait for your approval. The plan is your cheapest chance to course-correct.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">04</div>
           <div>
             <h4>Get it running</h4>
-            <p>Follow Copilot's setup instructions. If something fails, paste the full terminal error back into Copilot Chat. Repeat until <code>python app.py</code> gives you something visible.</p>
+            <p>Follow GitHub Copilot's setup instructions. If something fails, paste the full terminal error back into GitHub Copilot Chat. Repeat until <code>python app.py</code> gives you something visible.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">05</div>
           <div>
-            <h4>Swap in real data</h4>
-            <p>Replace sample data with real endpoints or customer-like inputs. Your SE context — knowing what realistic data looks like for this customer — is what makes this step fast.</p>
+            <h4>Use synthetic data as needed</h4>
+            <p>Use synthetic customer-like inputs to reduce cycle time. Your SE context — knowing what realistic data looks like for this customer — is what makes this step fast.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">06</div>
           <div>
             <h4>Polish the demo path only</h4>
-            <p>Identify the exact 3-minute click path the customer will see. Harden that path. Don't polish anything else.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">07</div>
-          <div>
-            <h4>Dry run before the customer</h4>
-            <p>Run it in front of a colleague first. Demos that have never run in front of a person always have surprises.</p>
+            <p>Identify the exact 5-minute click path the customer will see. Harden that path. Don't polish anything else.</p>
           </div>
         </div>
       </div>
@@ -557,16 +544,16 @@
 
     <section id="prompting">
       <h2><span class="sec-num">04</span> Your Starting Prompt</h2>
-      <p>Fill in the two highlighted fields. The rest is already tuned — don't change it.</p>
+      <p>Fill in the two highlighted fields. The rest is already tuned.</p>
 
       <div class="prompt-label">Copilot Chat — Agent Mode</div>
       <pre><code>I'm building a rapid prototype for <span class="fill-in">[customer / industry]</span> that demonstrates <span class="fill-in">[one-sentence use case]</span>.
 
-Reference files are attached: sample agent, .env, requirements.txt.
+Reference files are in the repo: sample_agent.py, .env, requirements.txt.
 Use Python FastAPI with an HTML/CSS/JS UI. Target deployment: Azure Web App.
-Follow the patterns in the attached files exactly.
+Follow the patterns in the sample implementation.
 
-Before writing any code, show me a proposed file structure and list any assumptions.
+Before writing any code, show me a proposed plan and list any assumptions.
 Wait for my approval before proceeding.</code></pre>
 
       <div class="callout">
@@ -576,7 +563,7 @@ Wait for my approval before proceeding.</code></pre>
 
       <div class="callout purple">
         <strong>OCTO Starter Templates</strong>
-        The OCTO maintains starter templates — a sample agent file, .env shape, and requirements.txt — for each common demo pattern. Clone one before starting. It gives Copilot a concrete reference to follow rather than inventing its own approach. Contact your OCTO lead for access.
+        The OCTO maintains starter templates — a sample agent file, .env shape, and requirements.txt — for each common demo pattern. Clone one before starting. It gives GitHub Copilot a concrete reference to follow rather than inventing its own approach. 
       </div>
     </section>
 
@@ -665,19 +652,14 @@ Wait for my approval before proceeding.</code></pre>
             <td>Almost everything. One process, no build step, deploys easily to Azure Web App.</td>
           </tr>
           <tr>
-            <td>Fast internal tool</td>
-            <td>Streamlit</td>
-            <td>When you need to move in hours and the UI doesn't need to impress.</td>
-          </tr>
-          <tr>
             <td>Low-code</td>
             <td>Copilot Studio + Power Automate</td>
             <td>When the audience is business stakeholders, not technical buyers.</td>
           </tr>
           <tr>
-            <td>AI pipeline showcase</td>
-            <td>Azure AI Foundry + Prompt Flow</td>
-            <td>When the pipeline itself is what you're demoing.</td>
+            <td>Agent service showcase</td>
+            <td>Microsoft Foundry Agent Playground</td>
+            <td>When the Agent Service experience itself is what you're demoing.</td>
           </tr>
         </tbody>
       </table>
@@ -745,20 +727,12 @@ credential = DefaultAzureCredential()
         </thead>
         <tbody>
           <tr>
-            <td>Azure OpenAI</td>
-            <td><code>Cognitive Services OpenAI User</code></td>
-          </tr>
-          <tr>
-            <td>Azure AI Foundry</td>
+            <td>Microsoft Foundry</td>
             <td><code>Azure AI Developer</code></td>
           </tr>
           <tr>
-            <td>Azure Key Vault (read secrets)</td>
-            <td><code>Key Vault Secrets User</code></td>
-          </tr>
-          <tr>
-            <td>Azure Storage (read)</td>
-            <td><code>Storage Blob Data Reader</code></td>
+            <td>Azure OpenAI</td>
+            <td><code>Cognitive Services OpenAI User</code></td>
           </tr>
           <tr>
             <td>Azure Storage (read/write)</td>
@@ -767,10 +741,6 @@ credential = DefaultAzureCredential()
           <tr>
             <td>Azure Cosmos DB</td>
             <td><code>Cosmos DB Built-in Data Contributor</code></td>
-          </tr>
-          <tr>
-            <td>Azure Service Bus</td>
-            <td><code>Azure Service Bus Data Sender</code> or <code>Receiver</code></td>
           </tr>
           <tr>
             <td>Azure AI Search</td>
@@ -810,7 +780,7 @@ credential = DefaultAzureCredential()
 # Use your Microsoft tenant, or the customer's if they'll be accessing it directly</code></pre>
 
       <div class="callout purple">
-        <strong>Let Copilot generate the auth setup for you</strong>
+        <strong>Let GitHub Copilot generate the auth setup for you</strong>
         Once your app is running locally, ask: <em>"Set up DefaultAzureCredential for [service]. I'm deploying to Azure Web App with system-assigned Managed Identity. Show me the Python code and the role assignment CLI command."</em> It will generate both for the specific service.
       </div>
     </section>
@@ -834,7 +804,7 @@ credential = DefaultAzureCredential()
             <td>Run after every major change.</td>
           </tr>
           <tr>
-            <td>Trusting Copilot blindly</td>
+            <td>Trusting GitHub Copilot blindly</td>
             <td>It confidently generates plausible-but-wrong code.</td>
             <td>Test every piece of logic against real inputs.</td>
           </tr>
@@ -849,14 +819,9 @@ credential = DefaultAzureCredential()
             <td>Use <code>.env</code> locally. Use Key Vault or App Settings in Azure.</td>
           </tr>
           <tr>
-            <td>Demoing in production</td>
-            <td>One mistake touches real customer data.</td>
-            <td>Always use a sandbox environment.</td>
-          </tr>
-          <tr>
             <td>Guessing through auth errors</td>
             <td>Hours lost, possible misconfiguration.</td>
-            <td>Use Section 08. Loop in OCTO if stuck.</td>
+            <td>Use Section 08.</td>
           </tr>
         </tbody>
       </table>
@@ -873,13 +838,13 @@ credential = DefaultAzureCredential()
         </div>
         <div class="card">
           <div class="card-icon">🏗️</div>
-          <h4>Azure AI Foundry</h4>
+          <h4>Microsoft Foundry</h4>
           <p>ai.azure.com — build, test, and deploy AI apps on Azure.</p>
         </div>
         <div class="card">
           <div class="card-icon">⚡</div>
           <h4>OCTO Starter Templates</h4>
-          <p>Internal scaffold library for common demo patterns. Contact your OCTO lead for access.</p>
+          <p>Internal scaffold library for common demo patterns.</p>
         </div>
         <div class="card">
           <div class="card-icon">🔐</div>
@@ -892,877 +857,7 @@ credential = DefaultAzureCredential()
 
       <div class="callout purple">
         <strong>Questions or stuck?</strong>
-        Reach out to the OCTO. We run monthly demo sprints — a low-stakes environment to build a real prototype with a technical mentor alongside you.
-      </div>
-    </section>
-
-  </main>
-</div>
-
-<footer>
-  <span>Microsoft · Office of the CTO · Americas</span>
-  <span>Internal · Not for Distribution</span>
-</footer>
-
-</body>
-</html>  header {
-    border-bottom: 1px solid var(--border);
-    padding: 48px 64px 40px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 24px;
-  }
-
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-
-  h1 {
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -.02em;
-    color: #fff;
-  }
-
-  h1 span { color: var(--accent); }
-
-  .header-meta {
-    text-align: right;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-dim);
-    line-height: 1.9;
-  }
-
-  .layout {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    min-height: calc(100vh - 160px);
-  }
-
-  nav {
-    border-right: 1px solid var(--border);
-    padding: 40px 24px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-  }
-
-  .nav-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 16px;
-    padding-left: 12px;
-  }
-
-  nav ul { list-style: none; }
-
-  nav li a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    border-radius: 6px;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    transition: all .15s;
-    border-left: 2px solid transparent;
-  }
-
-  nav li a:hover {
-    color: var(--text);
-    background: var(--surface2);
-    border-left-color: var(--accent);
-  }
-
-  nav li a .num {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text-dim);
-    min-width: 18px;
-  }
-
-  main {
-    padding: 48px 64px 80px;
-    max-width: 860px;
-  }
-
-  section { margin-bottom: 64px; }
-
-  h2 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -.01em;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  h2 .sec-num {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    background: rgba(79,158,255,.1);
-    border: 1px solid rgba(79,158,255,.25);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: 400;
-  }
-
-  h3 {
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    color: var(--text-muted);
-    margin: 28px 0 12px;
-  }
-
-  p { margin-bottom: 14px; color: var(--text); }
-
-  .intro-card {
-    background: linear-gradient(135deg, rgba(79,158,255,.08), rgba(124,106,247,.06));
-    border: 1px solid rgba(79,158,255,.2);
-    border-radius: 10px;
-    padding: 24px 28px;
-    margin-bottom: 28px;
-  }
-
-  .intro-card p { margin: 0; font-size: 15px; line-height: 1.75; }
-
-  .callout {
-    background: var(--surface2);
-    border-left: 3px solid var(--accent3);
-    border-radius: 0 8px 8px 0;
-    padding: 16px 20px;
-    margin: 20px 0;
-    font-size: 14px;
-  }
-
-  .callout.warn { border-left-color: var(--warn); }
-  .callout.purple { border-left-color: var(--accent2); }
-
-  .callout strong {
-    display: block;
-    color: var(--accent3);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    margin-bottom: 6px;
-  }
-
-  .callout.warn strong { color: var(--warn); }
-  .callout.purple strong { color: var(--accent2); }
-
-  code {
-    font-family: var(--mono);
-    font-size: 13px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 2px 7px;
-    border-radius: 4px;
-    color: var(--accent3);
-  }
-
-  pre {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px 24px;
-    overflow-x: auto;
-    margin: 16px 0;
-  }
-
-  pre code {
-    background: none;
-    border: none;
-    padding: 0;
-    font-size: 13px;
-    line-height: 1.65;
-    color: var(--text);
-  }
-
-  .fill-in { color: var(--warn); font-style: italic; }
-
-  .prompt-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 6px;
-  }
-
-  .steps { display: flex; flex-direction: column; gap: 16px; }
-
-  .step {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 20px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px 24px;
-    transition: border-color .2s;
-  }
-
-  .step:hover { border-color: rgba(79,158,255,.3); }
-
-  .step-num {
-    font-family: var(--mono);
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--accent);
-    line-height: 1;
-    padding-top: 2px;
-  }
-
-  .step h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
-  .step p { font-size: 14px; margin: 0; color: var(--text-muted); }
-
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 14px;
-    margin-top: 8px;
-  }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px 20px;
-  }
-
-  .card-icon { font-size: 22px; margin-bottom: 10px; }
-  .card h4 { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 6px; }
-  .card p { font-size: 13px; margin: 0; color: var(--text-muted); }
-
-  .badge-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-
-  .badge {
-    font-family: var(--mono);
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 100px;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    background: var(--surface);
-  }
-
-  .badge.blue { border-color: rgba(79,158,255,.3); color: var(--accent); background: rgba(79,158,255,.08); }
-  .badge.green { border-color: rgba(54,214,160,.3); color: var(--accent3); background: rgba(54,214,160,.08); }
-  .badge.purple { border-color: rgba(124,106,247,.3); color: var(--accent2); background: rgba(124,106,247,.08); }
-
-  .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-  .checklist li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--text-muted);
-  }
-
-  .checklist li::before {
-    content: '☐';
-    font-size: 16px;
-    color: var(--text-dim);
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
-
-  th {
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    color: var(--text-dim);
-    text-align: left;
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  td {
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    color: var(--text-muted);
-  }
-
-  td:first-child { color: #fff; font-weight: 400; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: var(--surface); }
-
-  .auth-flow {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    margin: 20px 0;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .auth-node {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 13px;
-    text-align: center;
-    flex: 1;
-    min-width: 140px;
-  }
-
-  .auth-node .label {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    margin-bottom: 4px;
-  }
-
-  .auth-node .name { color: #fff; font-weight: 600; font-size: 13px; }
-  .auth-node.highlight { border-color: rgba(79,158,255,.4); background: rgba(79,158,255,.07); }
-  .auth-node.highlight .name { color: var(--accent); }
-
-  .auth-arrow { font-size: 18px; color: var(--text-dim); padding: 0 4px; flex-shrink: 0; }
-
-  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
-
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 24px 64px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  footer span { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
-
-  @media (max-width: 768px) {
-    header, main, footer { padding-left: 24px; padding-right: 24px; }
-    .layout { grid-template-columns: 1fr; }
-    nav { display: none; }
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <div>
-    <div class="eyebrow">Office of the CTO · Americas</div>
-    <h1>Rapid Prototyping<br>with <span>GitHub Copilot</span></h1>
-  </div>
-  <div class="header-meta">
-    SE Field Guide<br>
-    v1.1 · 2026<br>
-    Internal Use
-  </div>
-</header>
-
-<div class="layout">
-
-  <nav>
-    <div class="nav-label">Contents</div>
-    <ul>
-      <li><a href="#purpose"><span class="num">00</span> Purpose</a></li>
-      <li><a href="#mindset"><span class="num">01</span> Mindset Shift</a></li>
-      <li><a href="#setup"><span class="num">02</span> Setup</a></li>
-      <li><a href="#workflow"><span class="num">03</span> Workflow</a></li>
-      <li><a href="#prompting"><span class="num">04</span> Your Starting Prompt</a></li>
-      <li><a href="#iteration"><span class="num">05</span> Iterating</a></li>
-      <li><a href="#patterns"><span class="num">06</span> Demo Patterns</a></li>
-      <li><a href="#stacks"><span class="num">07</span> Recommended Stacks</a></li>
-      <li><a href="#auth"><span class="num">08</span> Azure Auth &amp; Deployment</a></li>
-      <li><a href="#antipatterns"><span class="num">09</span> What to Avoid</a></li>
-      <li><a href="#resources"><span class="num">10</span> Resources</a></li>
-    </ul>
-  </nav>
-
-  <main>
-
-    <section id="purpose">
-      <h2><span class="sec-num">00</span> Purpose</h2>
-      <div class="intro-card">
-        <p>This guide equips Solution Engineers to build working prototypes — fast — using GitHub Copilot. The goal isn't to turn SEs into software engineers. It's to close the gap between <em>knowing what a solution should do</em> and <em>showing it working</em>. A credible 1–3 day prototype changes the customer conversation.</p>
-      </div>
-      <p>Prototypes built in the field don't need to be production-ready. They need to be <strong>real enough to feel true</strong>: working API calls, real data shapes, an interface a customer can click through. Copilot makes that bar achievable without a deep engineering background.</p>
-    </section>
-
-    <section id="mindset">
-      <h2><span class="sec-num">01</span> Mindset Shift</h2>
-      <p>The biggest blocker for SEs isn't skill — it's how they think about coding. Here's the reframe:</p>
-
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon">🏗️</div>
-          <h4>You're the architect</h4>
-          <p>Copilot writes code. You decide what to build and whether the output is right.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🔁</div>
-          <h4>Iteration > perfection</h4>
-          <p>A working prototype in 4 hours beats a polished plan that never runs.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🗣️</div>
-          <h4>Context is leverage</h4>
-          <p>The more context you give Copilot, the better the output. Your domain knowledge is the asset.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🧪</div>
-          <h4>Run everything</h4>
-          <p>Don't read code — run it. Errors are part of the process, not a sign of failure.</p>
-        </div>
-      </div>
-
-      <div class="callout warn">
-        <strong>Common trap</strong>
-        Don't spend time trying to fully understand every line Copilot generates before running it. Read for intent, run for truth.
-      </div>
-    </section>
-
-    <section id="setup">
-      <h2><span class="sec-num">02</span> Setup</h2>
-
-      <h3>Prerequisites</h3>
-      <ul class="checklist">
-        <li>VS Code installed (latest stable)</li>
-        <li>GitHub Copilot + Copilot Chat extensions installed and licensed — confirm with your manager</li>
-        <li>Python 3.11+ installed</li>
-        <li>Azure CLI installed and authenticated (<code>az login</code>)</li>
-        <li>Access to an Azure subscription with AI Foundry or Azure OpenAI provisioned</li>
-      </ul>
-
-      <h3>Key Extensions</h3>
-      <div class="badge-list">
-        <span class="badge blue">GitHub Copilot</span>
-        <span class="badge blue">GitHub Copilot Chat</span>
-        <span class="badge green">Python</span>
-        <span class="badge green">Pylance</span>
-        <span class="badge purple">Azure Tools</span>
-        <span class="badge">REST Client</span>
-      </div>
-
-      <div class="callout purple">
-        <strong>Enable Agent Mode</strong>
-        In VS Code settings, set <code>github.copilot.chat.agent.enabled: true</code>. This is the most powerful mode — it scaffolds entire projects, runs terminal commands, and edits multiple files at once. Use it for your starting prompt.
-      </div>
-    </section>
-
-    <section id="workflow">
-      <h2><span class="sec-num">03</span> Prototyping Workflow</h2>
-      <p>Use this loop for every prototype. The full cycle should take <strong>2–8 hours</strong> for most SE demos.</p>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div>
-            <h4>Define the demo moment first</h4>
-            <p>Write one sentence: "The customer will see ___." Work backwards from that. One impressive thing end-to-end beats three half-finished things.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div>
-            <h4>Drop in your reference files</h4>
-            <p>Add your OCTO starter template (sample agent file), <code>.env</code>, and <code>requirements.txt</code> to the project folder before opening Copilot. These are your context — Copilot builds from them, not from scratch.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div>
-            <h4>Send your starting prompt — plan first</h4>
-            <p>Use the template in Section 04. Ask Copilot to output a plan before writing any code, then wait for your approval. The plan is your cheapest chance to course-correct.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <div>
-            <h4>Get it running</h4>
-            <p>Follow Copilot's setup instructions. If something fails, paste the full terminal error back into Copilot Chat. Repeat until <code>python app.py</code> gives you something visible.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">05</div>
-          <div>
-            <h4>Swap in real data</h4>
-            <p>Replace sample data with real endpoints or customer-like inputs. Your SE context — knowing what realistic data looks like for this customer — is what makes this step fast.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">06</div>
-          <div>
-            <h4>Polish the demo path only</h4>
-            <p>Identify the exact 3-minute click path the customer will see. Harden that path. Don't polish anything else.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">07</div>
-          <div>
-            <h4>Dry run before the customer</h4>
-            <p>Run it in front of a colleague first. Demos that have never run in front of a person always have surprises.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="prompting">
-      <h2><span class="sec-num">04</span> Your Starting Prompt</h2>
-      <p>Fill in the two highlighted fields. The rest is already tuned — don't change it.</p>
-
-      <div class="prompt-label">Copilot Chat — Agent Mode</div>
-      <pre><code>I'm building a rapid prototype for <span class="fill-in">[customer / industry]</span> that demonstrates <span class="fill-in">[one-sentence use case]</span>.
-
-Reference files are attached: sample agent, .env, requirements.txt.
-Use Python FastAPI with an HTML/CSS/JS UI. Target deployment: Azure Web App.
-Follow the patterns in the attached files exactly.
-
-Before writing any code, show me a proposed file structure and list any assumptions.
-Wait for my approval before proceeding.</code></pre>
-
-      <div class="callout">
-        <strong>That's it</strong>
-        Two blanks. The prompt asks for a plan first so you can steer before any code is written — that conversation is where you shape the output. If you want a specific UI (e.g., a dashboard with run history), add one sentence at the end describing it.
-      </div>
-
-      <div class="callout purple">
-        <strong>OCTO Starter Templates</strong>
-        The OCTO maintains starter templates — a sample agent file, .env shape, and requirements.txt — for each common demo pattern. Clone one before starting. It gives Copilot a concrete reference to follow rather than inventing its own approach. Contact your OCTO lead for access.
-      </div>
-    </section>
-
-    <section id="iteration">
-      <h2><span class="sec-num">05</span> Iterating with Copilot</h2>
-      <p>Once the prototype is running, use these short prompts to move fast without breaking things.</p>
-
-      <table>
-        <thead>
-          <tr><th>You want to…</th><th>Say this</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Fix a crash</td>
-            <td>Paste the full terminal error. Nothing else needed.</td>
-          </tr>
-          <tr>
-            <td>Change a behavior</td>
-            <td>"Instead of X, do Y. Don't change anything else."</td>
-          </tr>
-          <tr>
-            <td>Add something</td>
-            <td>"Add [feature] to [file name]. Keep all existing logic intact."</td>
-          </tr>
-          <tr>
-            <td>Demo-proof it</td>
-            <td>"If the API call fails, fall back to the sample data in the attached file."</td>
-          </tr>
-          <tr>
-            <td>Understand something</td>
-            <td>"Explain what this function does in plain English."</td>
-          </tr>
-          <tr>
-            <td>Polish the UI</td>
-            <td>"Make the UI look clean and professional. Dark theme, Microsoft blue accents."</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="callout warn">
-        <strong>Always scope your changes</strong>
-        Vague prompts cause unintended rewrites. Name the file or function you want changed. "Fix the submit button in main.py" is better than "fix the form."
-      </div>
-    </section>
-
-    <section id="patterns">
-      <h2><span class="sec-num">06</span> Common Demo Patterns</h2>
-      <p>These four patterns cover the majority of SE prototype needs. Each has an OCTO starter template.</p>
-
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon">🤖</div>
-          <h4>Agentic Workflow</h4>
-          <p>Multi-step AI process: classify → route → act. Azure AI Foundry Agent Service + FastAPI dashboard.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">💬</div>
-          <h4>AI Chat on Your Data</h4>
-          <p>Upload docs, ask questions. Azure OpenAI + embeddings + simple chat UI served by FastAPI.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📄</div>
-          <h4>Document Intelligence</h4>
-          <p>Extract structured data from PDFs. Azure AI Document Intelligence + review UI.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📊</div>
-          <h4>AI-Enriched Dashboard</h4>
-          <p>Live data with AI-generated insights inline. Azure OpenAI + FastAPI + HTML dashboard.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="stacks">
-      <h2><span class="sec-num">07</span> Recommended Stacks</h2>
-      <p>Pick one. These are validated and deploy cleanly to Azure Web App.</p>
-
-      <table>
-        <thead>
-          <tr><th>Situation</th><th>Stack</th><th>When to use</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Default</td>
-            <td>Python FastAPI + HTML/CSS/JS</td>
-            <td>Almost everything. One process, no build step, deploys easily to Azure Web App.</td>
-          </tr>
-          <tr>
-            <td>Fast internal tool</td>
-            <td>Streamlit</td>
-            <td>When you need to move in hours and the UI doesn't need to impress.</td>
-          </tr>
-          <tr>
-            <td>Low-code</td>
-            <td>Copilot Studio + Power Automate</td>
-            <td>When the audience is business stakeholders, not technical buyers.</td>
-          </tr>
-          <tr>
-            <td>AI pipeline showcase</td>
-            <td>Azure AI Foundry + Prompt Flow</td>
-            <td>When the pipeline itself is what you're demoing.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="auth">
-      <h2><span class="sec-num">08</span> Azure Auth &amp; Deployment</h2>
-      <p>This is consistently the hardest part of field prototypes. The right setup depends on which Azure services you're connecting to — but the pattern is almost always the same: <strong>Managed Identity + role assignment + <code>DefaultAzureCredential</code> in code</strong>.</p>
-
-      <div class="callout warn">
-        <strong>Before you start</strong>
-        Auth setup requires Azure permissions your subscription may not grant by default. If you hit a wall, loop in your OCTO contact or a cloud architect — don't guess your way through RBAC. Getting this wrong can silently fail or expose resources.
-      </div>
-
-      <h3>The Standard Pattern (3 Steps)</h3>
-
-      <div class="auth-flow">
-        <div class="auth-node highlight">
-          <div class="label">Step 1</div>
-          <div class="name">Enable Managed Identity on Web App</div>
-        </div>
-        <div class="auth-arrow">→</div>
-        <div class="auth-node highlight">
-          <div class="label">Step 2</div>
-          <div class="name">Assign Role on Target Service</div>
-        </div>
-        <div class="auth-arrow">→</div>
-        <div class="auth-node highlight">
-          <div class="label">Step 3</div>
-          <div class="name">Use DefaultAzureCredential in Code</div>
-        </div>
-      </div>
-
-      <div class="prompt-label">Step 1 — Enable system-assigned managed identity</div>
-      <pre><code>az webapp identity assign \
-  --name &lt;your-app-name&gt; \
-  --resource-group &lt;your-rg&gt;</code></pre>
-
-      <div class="prompt-label">Step 2 — Assign the role (example: Azure OpenAI)</div>
-      <pre><code>az role assignment create \
-  --assignee &lt;principal-id-from-step-1-output&gt; \
-  --role "Cognitive Services OpenAI User" \
-  --scope /subscriptions/&lt;sub&gt;/resourceGroups/&lt;rg&gt;/providers/\
-Microsoft.CognitiveServices/accounts/&lt;openai-resource-name&gt;</code></pre>
-
-      <div class="prompt-label">Step 3 — Use DefaultAzureCredential in Python</div>
-      <pre><code>from azure.identity import DefaultAzureCredential
-
-credential = DefaultAzureCredential()
-
-# Works for Azure OpenAI, AI Foundry, Key Vault, Storage, etc.
-# Same code works locally (uses az login) and on Azure (uses Managed Identity)</code></pre>
-
-      <div class="callout">
-        <strong>Why this works everywhere</strong>
-        <code>DefaultAzureCredential</code> automatically uses your local <code>az login</code> session during development and switches to Managed Identity when deployed — so the same code runs in both environments without any changes.
-      </div>
-
-      <h3>Role Reference by Service</h3>
-      <p>The role name is what varies by service. This covers the most common prototype scenarios.</p>
-
-      <table>
-        <thead>
-          <tr><th>Azure Service</th><th>Role to assign to the Web App identity</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Azure OpenAI</td>
-            <td><code>Cognitive Services OpenAI User</code></td>
-          </tr>
-          <tr>
-            <td>Azure AI Foundry</td>
-            <td><code>Azure AI Developer</code></td>
-          </tr>
-          <tr>
-            <td>Azure Key Vault (read secrets)</td>
-            <td><code>Key Vault Secrets User</code></td>
-          </tr>
-          <tr>
-            <td>Azure Storage (read)</td>
-            <td><code>Storage Blob Data Reader</code></td>
-          </tr>
-          <tr>
-            <td>Azure Storage (read/write)</td>
-            <td><code>Storage Blob Data Contributor</code></td>
-          </tr>
-          <tr>
-            <td>Azure Cosmos DB</td>
-            <td><code>Cosmos DB Built-in Data Contributor</code></td>
-          </tr>
-          <tr>
-            <td>Azure Service Bus</td>
-            <td><code>Azure Service Bus Data Sender</code> or <code>Receiver</code></td>
-          </tr>
-          <tr>
-            <td>Azure AI Search</td>
-            <td><code>Search Index Data Reader</code></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Local vs. Deployed — Quick Reference</h3>
-      <table>
-        <thead>
-          <tr><th>Environment</th><th>How auth works</th><th>What to do</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Local dev</td>
-            <td>Azure CLI credential</td>
-            <td>Run <code>az login</code>. <code>DefaultAzureCredential</code> picks it up automatically.</td>
-          </tr>
-          <tr>
-            <td>Azure Web App</td>
-            <td>Managed Identity</td>
-            <td>Enable system-assigned MI on the Web App. Assign roles per the table above.</td>
-          </tr>
-          <tr>
-            <td>CI/CD pipeline</td>
-            <td>Service Principal</td>
-            <td>Not needed for most prototypes — skip until you need it.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Locking Down the Web App (User Access)</h3>
-      <p>If the prototype should only be accessible to specific people, use Easy Auth — don't add custom auth code.</p>
-      <pre><code># Azure Portal: Your Web App → Authentication → Add identity provider → Microsoft
-# Set "Restrict access" to "Require authentication"
-# Use your Microsoft tenant, or the customer's if they'll be accessing it directly</code></pre>
-
-      <div class="callout purple">
-        <strong>Let Copilot generate the auth setup for you</strong>
-        Once your app is running locally, ask: <em>"Set up DefaultAzureCredential for [service]. I'm deploying to Azure Web App with system-assigned Managed Identity. Show me the Python code and the role assignment CLI command."</em> It will generate both for the specific service.
-      </div>
-    </section>
-
-    <section id="antipatterns">
-      <h2><span class="sec-num">09</span> What to Avoid</h2>
-
-      <table>
-        <thead>
-          <tr><th>Anti-pattern</th><th>Why it hurts</th><th>Instead</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Over-scoping</td>
-            <td>You run out of time. Nothing works on demo day.</td>
-            <td>One strong scenario, end-to-end.</td>
-          </tr>
-          <tr>
-            <td>Never running the code</td>
-            <td>You discover the problem in front of the customer.</td>
-            <td>Run after every major change.</td>
-          </tr>
-          <tr>
-            <td>Trusting Copilot blindly</td>
-            <td>It confidently generates plausible-but-wrong code.</td>
-            <td>Test every piece of logic against real inputs.</td>
-          </tr>
-          <tr>
-            <td>No fallback for the demo</td>
-            <td>API timeouts kill live demos.</td>
-            <td>Add a mock data fallback. Always.</td>
-          </tr>
-          <tr>
-            <td>Hardcoding secrets</td>
-            <td>Keys end up in screenshots, repos, or slide decks.</td>
-            <td>Use <code>.env</code> locally. Use Key Vault or App Settings in Azure.</td>
-          </tr>
-          <tr>
-            <td>Demoing in production</td>
-            <td>One mistake touches real customer data.</td>
-            <td>Always use a sandbox environment.</td>
-          </tr>
-          <tr>
-            <td>Guessing through auth errors</td>
-            <td>Hours lost, possible misconfiguration.</td>
-            <td>Use Section 08. Loop in OCTO if stuck.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="resources">
-      <h2><span class="sec-num">10</span> Resources</h2>
-
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon">📚</div>
-          <h4>GitHub Copilot Docs</h4>
-          <p>docs.github.com/copilot — Agent Mode, Copilot Chat, and CLI reference.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🏗️</div>
-          <h4>Azure AI Foundry</h4>
-          <p>ai.azure.com — build, test, and deploy AI apps on Azure.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">⚡</div>
-          <h4>OCTO Starter Templates</h4>
-          <p>Internal scaffold library for common demo patterns. Contact your OCTO lead for access.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🔐</div>
-          <h4>DefaultAzureCredential</h4>
-          <p>learn.microsoft.com/azure/developer/python/sdk/authentication — the auth pattern used in Section 08.</p>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="callout purple">
-        <strong>Questions or stuck?</strong>
-        Reach out to the OCTO. We run monthly demo sprints — a low-stakes environment to build a real prototype with a technical mentor alongside you.
+        Reach out to the OCTO. We run regulat office hours — a low-stakes environment to build a real prototype with technical mentors alongside you.
       </div>
     </section>
 
